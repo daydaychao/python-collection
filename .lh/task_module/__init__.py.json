@@ -1,0 +1,22 @@
+{
+    "sourceFile": "task_module/__init__.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1689824495846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1689824905411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n-from .tasks.task import Task\n-from .list.task_purchase import purchase_condition, purchase_reward\n-from .list.task_upgrade import upgrade_condition, upgrade_reward\n+from tasks.task import Task,upgrade_task,purchase_task\n+from tasks.list.task_purchase import purchase_condition, purchase_reward\n+from tasks.list.task_upgrade import upgrade_condition, upgrade_reward\n"
+                }
+            ],
+            "date": 1689824495846,
+            "name": "Commit-0",
+            "content": "from .tasks.task import Task\nfrom .list.task_purchase import purchase_condition, purchase_reward\nfrom .list.task_upgrade import upgrade_condition, upgrade_reward\n"
+        }
+    ]
+}

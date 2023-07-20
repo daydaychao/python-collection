@@ -1,0 +1,62 @@
+{
+    "sourceFile": "task_module/main.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1689824522674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1689824540140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from tasks.task import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n+from tasks import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n \n class Character:\n     def __init__(self):\n         self.upgradeCount = 0\n"
+                },
+                {
+                    "date": 1689824552859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n-from tasks import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n-\n+from tasks import Task\n class Character:\n     def __init__(self):\n         self.upgradeCount = 0\n \n"
+                },
+                {
+                    "date": 1689824558866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n-from tasks import Task\n+from tasks import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n+\n class Character:\n     def __init__(self):\n         self.upgradeCount = 0\n \n"
+                },
+                {
+                    "date": 1689824598276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from tasks import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n+from tasks.task import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n \n class Character:\n     def __init__(self):\n         self.upgradeCount = 0\n"
+                },
+                {
+                    "date": 1689824606972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n-from tasks.task import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n+from tasks.task import Task\n+from tasks.list.task_purchase import purchase_condition, purchase_reward\n \n class Character:\n     def __init__(self):\n         self.upgradeCount = 0\n"
+                },
+                {
+                    "date": 1689824621060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n from tasks.task import Task\n from tasks.list.task_purchase import purchase_condition, purchase_reward\n+from tasks.list.task_purchase import purchase_condition, purchase_reward\n \n class Character:\n     def __init__(self):\n         self.upgradeCount = 0\n"
+                },
+                {
+                    "date": 1689824628474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n from tasks.task import Task\n from tasks.list.task_purchase import purchase_condition, purchase_reward\n-from tasks.list.task_purchase import purchase_condition, purchase_reward\n-\n+from tasks.list.task_upgrade import\n class Character:\n     def __init__(self):\n         self.upgradeCount = 0\n \n"
+                },
+                {
+                    "date": 1689824787923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n-from tasks.task import Task\n+from tasks import Task\n from tasks.list.task_purchase import purchase_condition, purchase_reward\n-from tasks.list.task_upgrade import\n+from tasks.list.task_upgrade import upgrade_condition, upgrade_reward\n+\n class Character:\n     def __init__(self):\n         self.upgradeCount = 0\n \n"
+                },
+                {
+                    "date": 1689824847092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from tasks import Task\n+from tasks.task import Task,upgrade_task,purchase_task\n from tasks.list.task_purchase import purchase_condition, purchase_reward\n from tasks.list.task_upgrade import upgrade_condition, upgrade_reward\n \n class Character:\n"
+                },
+                {
+                    "date": 1689824857964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,6 +35,9 @@\n     if not purchase_task.is_completed and purchase_task.check_condition(shop):\n         purchase_task.complete_task()\n \n if __name__ == \"__main__\":\n-    from tasks import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n+    from tasks.task import Task,upgrade_task,purchase_task\n+from tasks.list.task_purchase import purchase_condition, purchase_reward\n+from tasks.list.task_upgrade import upgrade_condition, upgrade_reward\n+\n     main_game_loop()\n"
+                },
+                {
+                    "date": 1689824864446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,8 @@\n         purchase_task.complete_task()\n \n if __name__ == \"__main__\":\n     from tasks.task import Task,upgrade_task,purchase_task\n-from tasks.list.task_purchase import purchase_condition, purchase_reward\n-from tasks.list.task_upgrade import upgrade_condition, upgrade_reward\n+    from tasks.list.task_purchase import purchase_condition, purchase_reward\n+    from tasks.list.task_upgrade import upgrade_condition, upgrade_reward\n \n     main_game_loop()\n"
+                }
+            ],
+            "date": 1689824522674,
+            "name": "Commit-0",
+            "content": "from tasks.task import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n\nclass Character:\n    def __init__(self):\n        self.upgradeCount = 0\n\n    def upgrade(self):\n        self.upgradeCount += 1\n\nclass Shop:\n    def __init__(self):\n        self.purchase_records = []\n\n    def purchase(self, item):\n        self.purchase_records.append(item)\n\ndef main_game_loop():\n    character = Character()\n    shop = Shop()\n\n    # 主角升級行為，假設升級3次\n    for _ in range(3):\n        character.upgrade()\n\n    # 商店購買行為，假設購買5次商品\n    for _ in range(5):\n        shop.purchase(\"商品\")\n\n    # 檢查是否完成任務\n    if not upgrade_task.is_completed and upgrade_task.check_condition(character):\n        upgrade_task.complete_task()\n\n    if not purchase_task.is_completed and purchase_task.check_condition(shop):\n        purchase_task.complete_task()\n\nif __name__ == \"__main__\":\n    from tasks import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n    main_game_loop()\n"
+        }
+    ]
+}
