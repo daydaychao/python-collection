@@ -1,0 +1,22 @@
+{
+    "sourceFile": "task_module/tasks/task.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1689831057910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1689831125594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n         self.reward()\n \n \n def upgrade_condition(character):\n+    return character.upgradeCount >= 3\n \n def purchase_condition(shop):\n     return len(shop.purchase_records) >= 5\n \n"
+                }
+            ],
+            "date": 1689831057910,
+            "name": "Commit-0",
+            "content": "class Task:\n    def __init__(self, task_id, description, condition, reward):\n        self.task_id = task_id\n        self.description = description\n        self.condition = condition\n        self.reward = reward\n        self.is_completed = False\n\n    def check_condition(self, character):\n        return self.condition(character)\n\n    def complete_task(self):\n        self.is_completed = True\n        self.reward()\n\n\ndef upgrade_condition(character):\n\ndef purchase_condition(shop):\n    return len(shop.purchase_records) >= 5\n\ndef upgrade_reward():\n    print(\"完成升級任務，獎勵金幣！\")\n\ndef purchase_reward():\n    print(\"完成購買任務，獎勵道具！\")\n\nupgrade_task = Task(task_id=1, description=\"升級主角3次\", condition=upgrade_condition, reward=upgrade_reward)\npurchase_task = Task(task_id=2, description=\"購買5次商品\", condition=purchase_condition, reward=purchase_reward)\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "main.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1689822580197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1689822580197,
+            "name": "Commit-0",
+            "content": "from tasks import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n\nclass Character:\n    def __init__(self):\n        self.upgradeCount = 0\n\n    def upgrade(self):\n        self.upgradeCount += 1\n\nclass Shop:\n    def __init__(self):\n        self.purchase_records = []\n\n    def purchase(self, item):\n        self.purchase_records.append(item)\n\ndef main_game_loop():\n    character = Character()\n    shop = Shop()\n\n    # 主角升級行為，假設升級3次\n    for _ in range(3):\n        character.upgrade()\n\n    # 商店購買行為，假設購買5次商品\n    for _ in range(5):\n        shop.purchase(\"商品\")\n\n    # 檢查是否完成任務\n    if not upgrade_task.is_completed and upgrade_task.check_condition(character):\n        upgrade_task.complete_task()\n\n    if not purchase_task.is_completed and purchase_task.check_condition(shop):\n        purchase_task.complete_task()\n\nif __name__ == \"__main__\":\n    from tasks import Task, upgrade_task, purchase_task, upgrade_condition, purchase_condition, upgrade_reward, purchase_reward\n    main_game_loop()\n"
+        }
+    ]
+}
